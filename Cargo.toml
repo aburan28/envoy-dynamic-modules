@@ -1,0 +1,16 @@
+[package]
+name = "adaptive-concurrency-dynamic-module"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "Envoy dynamic module that ports the adaptive-concurrency-wasm per-host Gradient2 logic"
+
+[dependencies]
+envoy-proxy-dynamic-modules-rust-sdk = { path = "../envoy/source/extensions/dynamic_modules/sdk/rust" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[lib]
+name = "adaptive_concurrency_module"
+path = "src/lib.rs"
+crate-type = ["cdylib", "rlib"]
